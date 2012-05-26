@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-
+using ServiceStack.Text;
 
 namespace Eleven41.Helpers
 {
@@ -9,22 +9,27 @@ namespace Eleven41.Helpers
 	{
 		public static string Serialize<T>(T obj)
 		{
-			return ServiceStack.Text.JsonSerializer.SerializeToString(obj, typeof(T));
+			return JsonSerializer.SerializeToString(obj, typeof(T));
+		}
+
+		public static string SerializeAndFormat<T>(T obj)
+		{
+			return obj.SerializeAndFormat();
 		}
 
 		public static void SerializeToStream<T>(T obj, Stream stream)
 		{
-			ServiceStack.Text.JsonSerializer.SerializeToStream(obj, stream);
+			JsonSerializer.SerializeToStream(obj, stream);
 		}
 
 		public static T Deserialize<T>(string json)
 		{
-			return ServiceStack.Text.JsonSerializer.DeserializeFromString<T>(json);
+			return JsonSerializer.DeserializeFromString<T>(json);
 		}
 
 		public static T DeserializeFromStream<T>(Stream stream)
 		{
-			return ServiceStack.Text.JsonSerializer.DeserializeFromStream<T>(stream);
+			return JsonSerializer.DeserializeFromStream<T>(stream);
 		}
 	}
 }
