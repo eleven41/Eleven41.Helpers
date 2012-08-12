@@ -37,5 +37,11 @@ namespace Eleven41.Helpers
 			return useDate.Date + useTime.TimeOfDay;
 			//return new DateTime(useDate.Year, useDate.Month, useDate.Day, useTime.Hour, useTime.Minute, useTime.Second, useTime.Kind);
 		}
+
+		public static int WeekOfMonth(DateTime d)
+		{
+			int remainder;
+			return Math.DivRem(d.Day - 1, 7, out remainder) + 1;
+		}
 	}
 }
