@@ -43,5 +43,16 @@ namespace Eleven41.Helpers
 			int remainder;
 			return Math.DivRem(d.Day - 1, 7, out remainder) + 1;
 		}
+
+		public static int InvWeekOfMonth(DateTime d)
+		{
+			// How many days in the month?
+			int daysInMonth = DateTime.DaysInMonth(d.Year, d.Month);
+			
+			int invDay = (daysInMonth - d.Day);
+
+			int remainder;
+			return Math.DivRem(invDay, 7, out remainder) + 1;
+		}
 	}
 }
