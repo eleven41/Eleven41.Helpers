@@ -33,7 +33,12 @@ namespace Eleven41.Helpers
 
 		public static T Deserialize<T>(string xml)
 		{
-			MemoryStream ms = new MemoryStream(Encoding.Unicode.GetBytes(xml));
+			return Deserialize<T>(xml, Encoding.Unicode);
+		}
+
+		public static T Deserialize<T>(string xml, Encoding encoding)
+		{
+			MemoryStream ms = new MemoryStream(encoding.GetBytes(xml));
 			try
 			{
 				System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
