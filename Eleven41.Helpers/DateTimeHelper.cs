@@ -54,5 +54,10 @@ namespace Eleven41.Helpers
 			int remainder;
 			return Math.DivRem(invDay, 7, out remainder) + 1;
 		}
+
+		public static string GetISO8601String(DateTime d)
+		{
+			return d.ToUniversalTime().ToString("yyyy-MM-dd\\THH:mm:ss.fff\\Z");
+		}
 	}
 }
