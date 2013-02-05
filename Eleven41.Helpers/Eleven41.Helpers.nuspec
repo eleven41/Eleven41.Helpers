@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Eleven41.Helpers</id>
+    <version>1.0.0</version>
+    <authors>Eleven41 Software</authors>
+    <owners>Eleven41 Software</owners>
+    <licenseUrl>https://github.com/eleven41/Eleven41.Helpers/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/eleven41/Eleven41.Helpers</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Eleven41.Helpers is a general purpose collection of helper classes.</description>
+    <copyright>Copyright (C) 2013, Eleven41 Software</copyright>
+    <dependencies>
+      <dependency id="ServiceStack.Text" version="3.7.8" />
+    </dependencies>
+  </metadata>
+</package>
