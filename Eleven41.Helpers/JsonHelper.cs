@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace Eleven41.Helpers
 {
+	/// <summary>
+	/// Uses Newtonsoft Json.Net to serialize/deserialize objects.
+	/// </summary>
 	public static class JsonHelper
 	{
 		public static string Serialize<T>(T obj)

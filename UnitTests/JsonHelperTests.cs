@@ -3,6 +3,7 @@ using System.Linq;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eleven41.Helpers;
+using System.Runtime.Serialization;
 
 namespace UnitTests
 {
@@ -193,6 +194,51 @@ namespace UnitTests
 			TestObject result = JsonHelper.DeserializeFromStream<TestObject>(new MemoryStream());
 
 			Assert.IsNull(result);
+		}
+		
+		[DataContract]
+		class TestDataContractObject
+		{
+			[DataMember(Name = "prop1")]
+			public int IntValue1 { get; set; }
+
+			[DataMember(Name = "prop3")]
+			public string StrValue1 { get; set; }
+
+			[DataMember(Name = "prop2")]
+			public string NullValue { get; set; }
+		}
+
+		[TestMethod]
+		public void serialize_datacontract_to_string_and_deserialize()
+		{
+			// Seed
+			var obj = new TestDataContractObject()
+			{
+				IntValue1 = 2,
+				StrValue1 = "123",
+				NullValue = null
+			};
+
+			// Execute
+
+			string json = JsonHelper.Serialize(obj);
+
+			Assert.IsNotNull(json);
+			Assert.AreEqual(-1, json.IndexOf("IntValue1", StringComparison.OrdinalIgnoreCase)); // Should not be included due to DataMember
+			Assert.AreNotEqual(-1, json.IndexOf("prop1", StringComparison.OrdinalIgnoreCase)); // Should be included due to DataMember
+			Assert.AreEqual(-1, json.IndexOf("NullValue", StringComparison.OrdinalIgnoreCase)); // Should not be included since null
+			Assert.AreEqual(-1, json.IndexOf("prop2", StringComparison.OrdinalIgnoreCase)); // Should not be included since null
+			Assert.AreEqual(-1, json.IndexOf("\r")); // Should not be formatted
+			Assert.AreEqual(-1, json.IndexOf("\n")); // Should not be formatted
+
+			TestDataContractObject result = JsonHelper.Deserialize<TestDataContractObject>(json);
+
+			// Check results
+			Assert.IsNotNull(result);
+			Assert.AreEqual(2, result.IntValue1);
+			Assert.AreEqual("123", result.StrValue1);
+			Assert.AreEqual(null, result.NullValue);
 		}
 	}
 }
