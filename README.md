@@ -1,6 +1,6 @@
 # Eleven41.Helpers
 
-Copyright (C) 2012, Eleven41 Software
+Copyright (C) 2014, Eleven41 Software
 
 Eleven41.Helpers is a general purpose collection of helper classes.
 
@@ -13,4 +13,4 @@ Eleven41.Helpers is a general purpose collection of helper classes.
 
 ## REQUIREMENTS
 
-* Visual Studio 2012
+* Visual Studio 2013
