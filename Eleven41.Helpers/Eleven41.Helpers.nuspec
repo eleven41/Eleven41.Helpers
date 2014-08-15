@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Eleven41.Helpers</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <authors>Eleven41 Software</authors>
     <owners>Eleven41 Software</owners>
     <licenseUrl>https://github.com/eleven41/Eleven41.Helpers/blob/master/LICENSE.md</licenseUrl>
@@ -11,7 +11,7 @@
     <description>Eleven41.Helpers is a general purpose collection of helper classes.</description>
     <copyright>Copyright (C) 2014, Eleven41 Software Inc.</copyright>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="4.0.8" />
+      <dependency id="Newtonsoft.Json" version="6.0.3" />
     </dependencies>
   </metadata>
 </package>
