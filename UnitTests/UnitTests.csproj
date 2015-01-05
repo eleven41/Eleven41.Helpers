@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="JsonHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MathHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eleven41.Helpers\Eleven41.Helpers.csproj">
