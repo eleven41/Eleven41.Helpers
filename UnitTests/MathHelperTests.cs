@@ -238,13 +238,6 @@ namespace UnitTests
 			Assert.AreEqual(Int32.MaxValue, result);
 		}
 
-		[TestMethod]
-		public void Round2_double_max()
-		{
-			double result = MathHelper.Round2(Double.MaxValue);
-			Assert.AreEqual(Double.MaxValue, result);
-		}
-
 		#region Negative Numbers
 
 		[TestMethod]
