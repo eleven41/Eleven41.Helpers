@@ -55,9 +55,30 @@ namespace Eleven41.Helpers
 			return Math.DivRem(invDay, 7, out remainder) + 1;
 		}
 
-		public static string GetISO8601String(DateTime d)
+		/// <summary>
+		/// Returns the specified date in ISO 8601 format.
+		/// </summary>
+		/// <param name="date">Date to convert to ISO 8601 format.</param>
+		/// <returns>String of converted date.</returns>
+		public static string GetISO8601String(DateTime date)
 		{
-			return d.ToUniversalTime().ToString("yyyy-MM-dd\\THH:mm:ss.fff\\Z");
+			if (date.Kind == DateTimeKind.Local)
+				date = date.ToUniversalTime();
+			else if (date.Kind == DateTimeKind.Unspecified)
+				date = DateTime.SpecifyKind(date, DateTimeKind.Utc);
+			return date.ToString("yyyy-MM-dd\\THH:mm:ss.fff\\Z");
+		}
+
+		public static DateTime ParseAsUtc(string dateString)
+		{
+			DateTime utcResult = DateTime.Parse(dateString).ToUniversalTime();
+			return utcResult;
+		}
+
+		public static DateTime ParseToTimeZone(string dateString, TimeZoneInfo tzi)
+		{
+			DateTime utcResult = DateTime.Parse(dateString).ToUniversalTime();
+			return TimeZoneHelper.AdjustFromUtc(utcResult, tzi);
 		}
 	}
 }
