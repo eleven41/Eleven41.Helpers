@@ -2,16 +2,20 @@
 <package >
   <metadata>
     <id>Eleven41.Helpers</id>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
     <authors>Eleven41 Software</authors>
     <owners>Eleven41 Software</owners>
     <licenseUrl>https://github.com/eleven41/Eleven41.Helpers/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/eleven41/Eleven41.Helpers</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Eleven41.Helpers is a general purpose collection of helper classes.</description>
-    <copyright>Copyright (C) 2014, Eleven41 Software Inc.</copyright>
+    <copyright>Copyright (C) 2015, Eleven41 Software Inc.</copyright>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="6.0.3" />
     </dependencies>
   </metadata>
+
+  <files>
+    <file src="bin\Release\Eleven41.Helpers.dll" target="lib/net40" />
+  </files>
 </package>

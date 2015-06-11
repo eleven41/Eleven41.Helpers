@@ -8,5 +8,6 @@
 
 # NuGet packages
 [Pp]ackages/
+*.nupkg
 
 
